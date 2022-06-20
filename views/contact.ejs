@@ -1,0 +1,35 @@
+    <a href="/contact/add">Tambah Kontak</a>
+    <br>
+    <h2>Daftar Contact</h2>
+    
+    <% if (msg.length !== 0) { %>
+     <p><%= msg %> </p>
+    <% } %>
+
+    <table border="1">
+        <tr>
+            <th>#</th>
+            <th>Nama</th>
+            <th>No Hp</th>
+            <th>Aksi</th>
+        </tr>
+        <% if (contacts.length === 0) { %>
+            <tr>
+                <td colspan="4">
+                    Data kontak masih kosong
+                </td>
+            </tr>
+        <% }else{ %>
+        <% let no = 1; %> 
+        <% contacts.forEach((contact, i) => { i++ %>
+            <tr>
+                <td><%= i++ %> </td>
+                <td><%= contact.nama %> </td>
+                <td><%= contact.nohp %></td>
+                <td>
+                    <a href="/contact/<%= contact.nama %> ">detail</a>
+                </td>
+            </tr>
+        <% }) %>
+        <% } %> 
+    </table>
